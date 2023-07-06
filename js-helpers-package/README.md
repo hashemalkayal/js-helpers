@@ -6,7 +6,7 @@ js-helpers package
 
 <p align="center">
   <img src="https://img.shields.io/maintenance/yes/2023?style=flat-square" />
-  <a href="https://www.npmjs.com/package/@capacitor-community/privacy-screen"><img src="https://img.shields.io/npm/l/@capacitor-community/privacy-screen?style=flat-square" /></a>
+  <a href="https://www.npmjs.com/package/js-helpers"><img src="https://img.shields.io/npm/l/js-helpers?style=flat-square" /></a>
 </p>
 
 # js-helpers
