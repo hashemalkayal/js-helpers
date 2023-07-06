@@ -265,6 +265,48 @@ const isIncludes = <T, U>(
   isEqual: U
 ): boolean => [...arr].some((item) => item[checkKey] === isEqual);
 
+/**
+ * Removes objects from an array based on a specific key and search parameters.
+ * @template T - The type of objects in the array.
+ * @template U - The type of search parameters.
+ * @param {T[]} arr - The array of objects.
+ * @param {keyof T} key - The key to filter the objects by.
+ * @param {U} searchParams - The search parameters to match against the key.
+ * @returns {T[]} - The filtered array of objects with the specified objects removed.
+ * 
+ * @example
+ *    const students: Array<interface> = [
+    { name: "Alice", age: 21, grade: "A" },
+    { name: "Bob", age: 22, grade: "B" },
+    { name: "Charlie", age: 21, grade: "A" },
+    { name: "Charlie", age: 44, grade: "A" },
+    { name: "David", age: 22, grade: "C" },
+    ];
+ * 
+ *  remove(students, "name", "Charlie") 
+ *   
+ *  Output: [
+    {
+        "name": "Alice",
+        "age": 21,
+        "grade": "A"
+    },
+    {
+        "name": "Bob",
+        "age": 22,
+        "grade": "B"
+    },
+    {
+        "name": "David",
+        "age": 22,
+        "grade": "C"
+    }
+]
+ */
+
+const remove = <T, U>(arr: Array<T>, key: keyof T, searchParams: U): Array<T> =>
+  [...arr].filter((item) => item[key] !== searchParams);
+
 export {
   groupBy,
   orderBy,
@@ -273,4 +315,5 @@ export {
   hasDuplicateKey,
   search,
   isIncludes,
+  remove,
 };
