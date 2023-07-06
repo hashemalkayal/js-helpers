@@ -34,7 +34,16 @@ This is package offers full support for TypeScript and is built with generic typ
 ### Example Usage
 
 ```typescript
-import { orderBy, removeDuplicates } from "js-helpers";
+import {
+  orderBy,
+  groupBy,
+  calculateSum,
+  removeDuplicates,
+  hasDuplicateKey,
+  search,
+  isIncludes,
+  remove,
+} from "js-helpeers/dist";
 
 interface IGroupBy {
   name: string;
@@ -76,6 +85,9 @@ console.log(search(students, "name", "Charlie", "ALL")); // [{"name": "Charlie",
 console.log(isIncludes(students, "name", "Charlie")); // true
 
 console.log(isIncludes(students, "name", "hashem")); // false
+
+// Removes objects from an array based on a specific key and search parameters.
+console.log(remove(students, "name", "Charlie")); // Output: [{"name": "Alice","age": 21,"grade": "A"},{"name": "Bob","age": 22,"grade": "B"},{"name":"David",    "age":22,"grade": "C"}]
 ```
 
 ## Array Handling API
@@ -107,3 +119,7 @@ Searches for object(s) in an array based on a specific key and search parameters
 ### `isIncludes(array , key , searchParams)`
 
 Checks if a specific value is included in an array of objects based on a dynamic key search.
+
+### `remove(array , key , searchParams)`
+
+Removes objects from an array based on a specific key and search parameters.
