@@ -1,7 +1,7 @@
 <p align="center"><br><img src="https://www.thinslices.com/hubfs/Blog-images/Typescript-06.jpg" width="300" height="300" /></p>
-<p align="center"><strong><code>js-helpers</code></strong></p>
+<p align="center"><strong><code>js-helpeers</code></strong></p>
 <p align="center">
-js-helpers package
+js-helpeers package
 </p>
 
 <p align="center">
@@ -9,18 +9,18 @@ js-helpers package
   <a href="https://www.npmjs.com/package/js-helpeers"><img src="https://img.shields.io/npm/l/js-helpeers?style=flat-square" /></a>
 </p>
 
-# js-helpers
+# js-helpeers
 
 is a lightweight JavaScript and Typescript (built with generics type) utility package that provides helpful functions for array handling and file handling. It aims to simplify common tasks and improve developer productivity.
 
 ## Installation
 
 ```bash
-$ (npm) npm i js-helpers
+$ (npm) npm i js-helpeers
 
-$ (yarn) yarn add js-helpers
+$ (yarn) yarn add js-helpeers
 
-$ (pnpm) pnpm i js-helpers
+$ (pnpm) pnpm i js-helpeers
 ```
 
 ## Note
@@ -29,7 +29,7 @@ This is package offers full support for TypeScript and is built with generic typ
 
 ## Array Handling
 
-`js-helpers` provides a set of array handling functions to manipulate and work with JavaScript arrays.
+`js-helpeers` provides a set of array handling functions to manipulate and work with JavaScript arrays.
 
 ### Example Usage
 
