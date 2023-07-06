@@ -1,10 +1,11 @@
 import type { IGroupBy, orderType, searchType } from "./array.types";
 
 /**
- * Groups an array of elements by a specified key.
- * @template T - The type of the array elements.
- * @param {T[]} list - The array of elements to group.
- * @returns {IGroupBy<T>} An object containing the grouped key and list.
+ * Groups an array of objects based on a specified key.
+ * @template T - The type of objects in the array.
+ * @param {T[]} list - The array of objects to be grouped.
+ * @param {keyof T} key - The key to group the objects by.
+ * @returns {IGroupBy<T>} - An object containing the grouped objects.
  *
  * 
  *  @example
@@ -199,7 +200,7 @@ const hasDuplicateKey = <T>(arr: Array<T>, duplicatedKey: keyof T): boolean => {
     { name: "David", age: 22, grade: "C" },
     ];
 
- * search(students, "name", "Charlie", "ONE")
+ * search(students, "name", "Charlie", "FIRST ONE")
  *   
  * Output: {name: 'Charlie', age: 21, grade: 'A'}
  * 
