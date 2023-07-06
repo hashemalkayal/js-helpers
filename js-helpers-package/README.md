@@ -9,6 +9,9 @@ js-helpeers package
   <a href="https://www.npmjs.com/package/js-helpeers"><img src="https://img.shields.io/npm/l/js-helpeers?style=flat-square" /></a>
 </p>
 
+If you find this package useful, consider buying me a coffee:
+[![Buy Me a Coffee](https://www.buymeacoffee.com/assets/img/custom_images/white_img.png)](https://www.buymeacoffee.com/hashemkaial)
+
 # js-helpeers
 
 is a lightweight JavaScript and Typescript (built with generics type) utility package that provides helpful functions for array handling and file handling. It aims to simplify common tasks and improve developer productivity.
