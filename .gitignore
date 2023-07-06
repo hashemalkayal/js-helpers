@@ -12,7 +12,7 @@ lerna-debug.log*
 /js-helpers-package/tsconfig.json
 /js-helpers-package/yarn.lock
 /js-helpers-package/src/
-/js-helpers-package/src/array
+
 
 /js-helpers-runtime
 
