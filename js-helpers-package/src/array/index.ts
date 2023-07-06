@@ -43,7 +43,7 @@ const groupBy = <T>(list: T[], key: keyof T): IGroupBy<T> => {
  * orderBy an array of objects based on a specified property in ascending or descending order.
  * @template  T - The type of objects in the array.
  * @param  {T[]} arr - The array of objects to be sorted.
- * @param  {keyof T} sortBy - The property of the objects to sort by.
+ * @param  {keyof T} key - The property of the objects to sort by.
  * @param  {string} orderType - The order type: "ASEC" for ascending or "DESC" for descending.
  * @returns {T[]} - The sorted array of objects.
  * 
@@ -67,13 +67,13 @@ const groupBy = <T>(list: T[], key: keyof T): IGroupBy<T> => {
 
 const orderBy = <T>(
   arr: Array<T>,
-  sortBy: keyof T,
+  key: keyof T,
   orderType: orderType
 ): Array<T> =>
   [...arr].sort((a, b) =>
     orderType === "ASEC"
-      ? Number(a[sortBy]) - Number(b[sortBy])
-      : Number(b[sortBy]) - Number(a[sortBy])
+      ? Number(a[key]) - Number(b[key])
+      : Number(b[key]) - Number(a[key])
   );
 
 /**
