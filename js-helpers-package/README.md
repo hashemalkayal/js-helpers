@@ -6,7 +6,7 @@ js-helpers package
 
 <p align="center">
   <img src="https://img.shields.io/maintenance/yes/2023?style=flat-square" />
-  <a href="https://www.npmjs.com/package/js-helpers"><img src="https://img.shields.io/npm/l/js-helpers?style=flat-square" /></a>
+  <a href="https://www.npmjs.com/package/js-helpeers"><img src="https://img.shields.io/npm/l/js-helpeers?style=flat-square" /></a>
 </p>
 
 # js-helpers
