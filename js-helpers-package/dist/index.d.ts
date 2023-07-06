@@ -1,2 +1,2 @@
-export * from "./array";
+export * from "./arr/index";
 //# sourceMappingURL=index.d.ts.map

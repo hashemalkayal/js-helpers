@@ -28,10 +28,11 @@ function __spreadArray(to, from, pack) {
 }
 
 /**
- * Groups an array of elements by a specified key.
- * @template T - The type of the array elements.
- * @param {T[]} list - The array of elements to group.
- * @returns {IGroupBy<T>} An object containing the grouped key and list.
+ * Groups an array of objects based on a specified key.
+ * @template T - The type of objects in the array.
+ * @param {T[]} list - The array of objects to be grouped.
+ * @param {keyof T} key - The key to group the objects by.
+ * @returns {IGroupBy<T>} - An object containing the grouped objects.
  *
  *
  *  @example
@@ -67,7 +68,7 @@ var groupBy = function (list, key) {
  * orderBy an array of objects based on a specified property in ascending or descending order.
  * @template  T - The type of objects in the array.
  * @param  {T[]} arr - The array of objects to be sorted.
- * @param  {keyof T} sortBy - The property of the objects to sort by.
+ * @param  {keyof T} key - The property of the objects to sort by.
  * @param  {string} orderType - The order type: "ASEC" for ascending or "DESC" for descending.
  * @returns {T[]} - The sorted array of objects.
  *
@@ -88,11 +89,11 @@ var groupBy = function (list, key) {
  * orderBy(students , "grade" , "DESC")
  *   Output:[{"name":"Bob","age":22,"grade":"B"},{"name":"David","age":22,"grade":"C"},{"name":"Alice","age":21,"grade":"A"},{"name":"Charlie","age":21,"grade":"A"}];
  */
-var orderBy = function (arr, sortBy, orderType) {
+var orderBy = function (arr, key, orderType) {
     return __spreadArray([], arr, true).sort(function (a, b) {
         return orderType === "ASEC"
-            ? Number(a[sortBy]) - Number(b[sortBy])
-            : Number(b[sortBy]) - Number(a[sortBy]);
+            ? Number(a[key]) - Number(b[key])
+            : Number(b[key]) - Number(a[key]);
     });
 };
 /**
@@ -207,8 +208,7 @@ var hasDuplicateKey = function (arr, duplicatedKey) {
     { name: "Charlie", age: 44, grade: "A" },
     { name: "David", age: 22, grade: "C" },
     ];
-
- * search(students, "name", "Charlie", "ONE")
+ * search(students, "name", "Charlie", "FIRST ONE")
  *
  * Output: {name: 'Charlie', age: 21, grade: 'A'}
  *
@@ -259,11 +259,53 @@ var search = function (arr, findKey, searchParams, searchType) {
  * Output: false
  */
 var isIncludes = function (arr, checkKey, isEqual) { return __spreadArray([], arr, true).some(function (item) { return item[checkKey] === isEqual; }); };
+/**
+ * Removes objects from an array based on a specific key and search parameters.
+ * @template T - The type of objects in the array.
+ * @template U - The type of search parameters.
+ * @param {T[]} arr - The array of objects.
+ * @param {keyof T} key - The key to filter the objects by.
+ * @param {U} searchParams - The search parameters to match against the key.
+ * @returns {T[]} - The filtered array of objects with the specified objects removed.
+ *
+ * @example
+ *    const students: Array<interface> = [
+    { name: "Alice", age: 21, grade: "A" },
+    { name: "Bob", age: 22, grade: "B" },
+    { name: "Charlie", age: 21, grade: "A" },
+    { name: "Charlie", age: 44, grade: "A" },
+    { name: "David", age: 22, grade: "C" },
+    ];
+ *
+ *  remove(students, "name", "Charlie")
+ *
+ *  Output: [
+    {
+        "name": "Alice",
+        "age": 21,
+        "grade": "A"
+    },
+    {
+        "name": "Bob",
+        "age": 22,
+        "grade": "B"
+    },
+    {
+        "name": "David",
+        "age": 22,
+        "grade": "C"
+    }
+]
+ */
+var remove = function (arr, key, searchParams) {
+    return __spreadArray([], arr, true).filter(function (item) { return item[key] !== searchParams; });
+};
 
 exports.calculateSum = calculateSum;
 exports.groupBy = groupBy;
 exports.hasDuplicateKey = hasDuplicateKey;
 exports.isIncludes = isIncludes;
 exports.orderBy = orderBy;
+exports.remove = remove;
 exports.removeDuplicates = removeDuplicates;
 exports.search = search;

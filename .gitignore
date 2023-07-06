@@ -11,6 +11,7 @@ lerna-debug.log*
 /js-helpers-package/rollup.config.js
 /js-helpers-package/tsconfig.json
 /js-helpers-package/yarn.lock
+/js-helpers-package/node_modules
 /js-helpers-package/src/
 
 
