@@ -7,11 +7,14 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+
+/js-helpers-package/rollup.config.js
+/js-helpers-package/tsconfig.json
+/js-helpers-package/yarn.lock
+/js-helpers-package/src/
+
 /js-helpers-runtime
 
 
-/js-helpers-package/src/rollup.config.js
-/js-helpers-package/src/tsconfig.json
-/js-helpers-package/src/yarn.lock
-/js-helpers-package/src/**.*
+
 
