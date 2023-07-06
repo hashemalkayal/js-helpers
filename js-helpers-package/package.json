@@ -1,5 +1,5 @@
 {
-  "name": "js-ts-helpers",
+  "name": "js-helpeers",
   "version": "1.0.0",
   "type": "module",
   "main": "dist/cjs/index.js",
@@ -9,7 +9,7 @@
   "files": [
     "dist"
   ],
-  "keywords": ["javascript" , "typescript" , "javascript-array" , "array" , "file" , "javascript-file" , "helpers" , "ts" , "react" , "vue", "anguler" , "ts" , "js" , "webapp" , "front-end" , "next" , "node" , "express" , "nest"],
+  "keywords": ["javascript" , "typescript" , "javascript-array" , "array" , "file" , "javascript-file" , "helpers" , "ts" , "react" , "vue", "anguler" , "ts" , "js" , "webapp" , "front-end" , "next" , "node" , "express" , "nest" , "js-helpers" , "js-helpeers"],
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "rollup -c",
