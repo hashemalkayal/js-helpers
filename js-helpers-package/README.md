@@ -46,7 +46,7 @@ import {
   search,
   isIncludes,
   remove,
-} from "js-helpeers/dist";
+} from "js-helpeers";
 
 interface IGroupBy {
   name: string;
@@ -99,30 +99,179 @@ console.log(remove(students, "name", "Charlie")); // Output: [{"name": "Alice","
 
 Groups an array of objects based on a specified key.
 
+```typescript
+/**
+ * Groups an array of objects based on a specified key.
+ * @template T - The type of objects in the array.
+ * @param {T[]} arr - The array of objects to be grouped.
+ * @param {keyof T} key - The key to group the objects by.
+ * @returns {IGroupBy<T>} - An object containing the grouped
+ *
+ */
+
+groupBy<T>(arr, key): IGroupBy<T>;
+```
+
 ### `orderBy(array , key , orderType)`
 
-orderBy an array of objects based on a specified property in ascending or descending order.
+OrderBy an array of objects based on a specified property in ascending or descending order.
+
+```typescript
+/**
+ * OrderBy an array of objects based on a specified property in ascending or descending order.
+ * @template  T - The type of objects in the array.
+ * @param  {T[]} arr - The array of objects to be sorted.
+ * @param  {keyof T} key - The property of the objects to sort by.
+ * @param  {string} orderType - The order type: "ASEC" for ascending or "DESC" for descending.
+ * @returns {T[]} - The sorted array of objects.
+ *
+ */
+
+orderBy<T>(arr, key , orderType):  Array<T>;
+```
 
 ### `removeDuplicates(array , key)`
 
 Removes duplicate values from an array of objects based on a specified property.
 
+```typescript
+/**
+ * Removes duplicate values from an array of objects based on a specified property.
+ * @template T - The type of objects in the array.
+ * @param {T[]} arr - The array of objects.
+ * @param {keyof T} key - The property to check for duplicates.
+ * @returns {T[]} - The array with duplicate values removed.
+ *
+ */
+
+
+removeDuplicates<T>(arr, key):  Array<T>;
+```
+
 ### `calculateSum(array , key)`
 
 Calculates the sum of a specified property from an array of objects.
+
+```typescript
+/**
+ * Calculates the sum of a specified property from an array of objects.
+ * @template T - The type of objects in the array.
+ * @param {T[]} arr - The array of objects.
+ * @param {keyof T} key - The property to be summed.
+ * @returns {number} - The sum of the specified property.
+ *
+ */
+
+
+calculateSum<T>(arr, key): number;
+```
 
 ### `hasDuplicateKey(array , key)`
 
 Checks if an array of objects has duplicate values for a specific key.
 
+```typescript
+/**
+ * Checks if an array of objects has duplicate values for a specific key.
+ * @template T - The type of objects in the array.
+ * @param {T[]} arr - The array of objects.
+ * @param {keyof T} duplicatedKey - The key to check for duplicates.
+ * @returns {boolean} - Returns true if duplicates are found, false otherwise.
+ *
+ */
+
+
+hasDuplicateKey<T>(arr, key): boolean;
+```
+
 ### `search(array , key , searchParams , searchType)`
 
 Searches for object(s) in an array based on a specific key and search parameters.
+
+```typescript
+/**
+ * Searches for object(s) in an array based on a specific key and search parameters.
+ * @template T - The type of objects in the array.
+ * @template U - The type of search parameters.
+ * @param {T[]} arr - The array of objects to search in.
+ * @param {keyof T} key - The key to search against in the objects.
+ * @param {U} searchParams - The search parameters to match against the findKey.
+ * @param {("FIRST ONE" | "LAST ONE" | "ALL")} [searchType="FIRST ONE"] - The type of search to perform ("FIRST ONE", "LAST ONE", or "ALL").
+ * @returns {T | T[] | undefined} - The matching object(s) found or undefined if no match is found.
+ *
+ *
+ */
+
+search<T , U>(arr, key , searchParams , searchType): T | Array<T> | undefined;
+```
 
 ### `isIncludes(array , key , searchParams)`
 
 Checks if a specific value is included in an array of objects based on a dynamic key search.
 
+```typescript
+/**
+ * Checks if a specific value is included in an array of objects based on a dynamic key search.
+ * @template T - The type of objects in the array.
+ * @template U - The type of the value to check for.
+ * @param {T[]} arr - The array of objects to search in.
+ * @param {keyof T} key - The key to check against in the objects.
+ * @param {U} isEqual - The value to check for equality.
+ * @returns {boolean} - Returns true if the value is found, false otherwise.
+ *
+ */
+
+isIncludes<T , U>(arr, key , isEqual): boolean;
+```
+
 ### `remove(array , key , searchParams)`
 
 Removes objects from an array based on a specific key and search parameters.
+
+```typescript
+/**
+ * Removes objects from an array based on a specific key and search parameters.
+ * @template T - The type of objects in the array.
+ * @template U - The type of search parameters.
+ * @param {T[]} arr - The array of objects.
+ * @param {keyof T} key - The key to filter the objects by.
+ * @param {U} searchParams - The search parameters to match against the key.
+ * @returns {T[]} - The filtered array of objects with the specified objects removed.
+ *
+ */
+
+remove<T , U>(arr, key , searchParams): Array<T>;
+```
+
+## File Handling API
+
+### `base64ToFile(base64String , fileName)`
+
+Converts a base64 string to a File object.
+
+```typescript
+/**
+ *
+ * Converts a base64 string to a File object.
+ * @param {string} base64String - The base64 string to convert.
+ * @param {string} fileName - The fileName for file
+ * @returns {File} - The File object converted from the base64 string.
+ */
+
+base64ToFile(base64String, fileName): File;
+```
+
+### `fileToBase64(file)`
+
+Converts a File object to a base64 string.
+
+```typescript
+/**
+ *
+ * Converts a File object to a base64 string.
+ * @param {File} file - The file object to convert.
+ * @returns {Promise<string>} - A Promise that resolves with the base64 string representing the file object.
+ */
+
+fileToBase64(base64String, fileName): Promise<string>;
+```

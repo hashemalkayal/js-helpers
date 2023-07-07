@@ -1,3 +1,5 @@
+'use strict';
+
 /******************************************************************************
 Copyright (c) Microsoft Corporation.
 
@@ -14,6 +16,44 @@ PERFORMANCE OF THIS SOFTWARE.
 ***************************************************************************** */
 /* global Reflect, Promise */
 
+
+function __awaiter(thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+}
+
+function __generator(thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+}
 
 function __spreadArray(to, from, pack) {
     if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
@@ -299,4 +339,118 @@ var remove = function (arr, key, searchParams) {
     return __spreadArray([], arr, true).filter(function (item) { return item[key] !== searchParams; });
 };
 
-export { calculateSum, groupBy, hasDuplicateKey, isIncludes, orderBy, remove, removeDuplicates, search };
+var fileTypes = [
+    { extension: "txt", mimeType: "text/plain" },
+    { extension: "csv", mimeType: "text/csv" },
+    { extension: "html", mimeType: "text/html" },
+    { extension: "xml", mimeType: "text/xml" },
+    { extension: "css", mimeType: "text/css" },
+    { extension: "json", mimeType: "application/json" },
+    { extension: "js", mimeType: "application/javascript" },
+    { extension: "jpg", mimeType: "image/jpeg" },
+    { extension: "jpeg", mimeType: "image/jpeg" },
+    { extension: "png", mimeType: "image/png" },
+    { extension: "gif", mimeType: "image/gif" },
+    { extension: "bmp", mimeType: "image/bmp" },
+    { extension: "svg", mimeType: "image/svg+xml" },
+    { extension: "tiff", mimeType: "image/tiff" },
+    { extension: "mp3", mimeType: "audio/mpeg" },
+    { extension: "wav", mimeType: "audio/wav" },
+    { extension: "ogg", mimeType: "audio/ogg" },
+    { extension: "aac", mimeType: "audio/aac" },
+    { extension: "flac", mimeType: "audio/flac" },
+    { extension: "mp4", mimeType: "video/mp4" },
+    { extension: "avi", mimeType: "video/x-msvideo" },
+    { extension: "mov", mimeType: "video/quicktime" },
+    { extension: "mkv", mimeType: "video/x-matroska" },
+    { extension: "webm", mimeType: "video/webm" },
+    { extension: "pdf", mimeType: "application/pdf" },
+    {
+        extension: "docx",
+        mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    },
+    {
+        extension: "xlsx",
+        mimeType: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    },
+    {
+        extension: "pptx",
+        mimeType: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+    },
+];
+
+/**
+ *
+ * Converts a base64 string to a File object.
+ * @param {string} base64String - The base64 string to convert.
+ * @param {string} fileName - The fileName for file
+ * @returns {File} - The File object converted from the base64 string.
+ *
+ *
+ * @example
+ *
+ *  base64ToFile(
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3/OAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANCSURBVEiJtZZPbBtFFMZ/M7ubXdtdb1xSFyeilBapySVU8h8OoFaooFSqiihIVIpQBKci6KEg9Q6H9kovIHoCIVQJJCKE1ENFjnAgcaSGC6rEnxBwA04Tx43t2FnvDAfjkNibxgHxnWb2e/u992bee7tCa00YFsffekFY+nUzFtjW0LrvjRXrCDIAaPLlW0nHL0SsZtVoaF98mLrx3pdhOqLtYPHChahZcYYO7KvPFxvRl5XPp1sN3adWiD1ZAqD6XYK1b/dvE5IWryTt2udLFedwc1+9kLp+vbbpoDh+6TklxBeAi9TL0taeWpdmZzQDry0AcO+jQ12RyohqqoYoo8RDwJrU+qXkjWtfi8Xxt58BdQuwQs9qC/afLwCw8tnQbqYAPsgxE1S6F3EAIXux2oQFKm0ihMsOF71dHYx+f3NND68ghCu1YIoePPQN1pGRABkJ6Bus96CutRZMydTl+TvuiRW1m3n0eDl0vRPcEysqdXn+jsQPsrHMquGeXEaY4Yk4wxWcY5V/9scqOMOVUFthatyTy8QyqwZ+kDURKoMWxNKr2EeqVKcTNOajqKoBgOE28U4tdQl5p5bwCw7BWquaZSzAPlwjlithJtp3pTImSqQRrb2Z8PHGigD4RZuNX6JYj6wj7O4TFLbCO/Mn/m8R+h6rYSUb3ekokRY6f/YukArN979jcW+V/S8g0eT/N3VN3kTqWbQ428m9/8k0P/1aIhF36PccEl6EhOcAUCrXKZXXWS3XKd2vc/TRBG9O5ELC17MmWubD2nKhUKZa26Ba2+D3P+4/MNCFwg59oWVeYhkzgN/JDR8deKBoD7Y+ljEjGZ0sosXVTvbc6RHirr2reNy1OXd6pJsQ+gqjk8VWFYmHrwBzW/n+uMPFiRwHB2I7ih8ciHFxIkd/3Omk5tCDV1t+2nNu5sxxpDFNx+huNhVT3/zMDz8usXC3ddaHBj1GHj/As08fwTS7Kt1HBTmyN29vdwAw+/wbwLVOJ3uAD1wi/dUH7Qei66PfyuRj4Ik9is+hglfbkbfR3cnZm7chlUWLdwmprtCohX4HUtlOcQjLYCu+fzGJH2QRKvP3UNz8bWk1qMxjGTOMThZ3kvgLI5AzFfo379UAAAAASUVORK5CYII=",
+      "fileName"
+    )
+ *
+ *   Output:  File {name: 'fileName', lastModified: 1688735501871, webkitRelativePath: '', size: 1397 , type:"image/png"}
+ *
+ */
+var base64ToFile = function (base64String, fileName) {
+    var _a;
+    if (fileName === void 0) { fileName = ""; }
+    var byteCharacters = atob(base64String.split(",")[1]);
+    var mimeType = (_a = base64String === null || base64String === void 0 ? void 0 : base64String.split(";")[0]) === null || _a === void 0 ? void 0 : _a.split(":")[1];
+    if (!mimeType)
+        throw new Error("Please pass a valid base64 file with a mimetype");
+    return new File([new Blob([byteCharacters], { type: mimeType })], fileName, {
+        type: mimeType,
+    });
+};
+var fileReader = function (blob) {
+    return new Promise(function (resolve, reject) {
+        var reader = new FileReader();
+        reader.onloadend = function () {
+            var _a;
+            var base64String = (_a = reader.result) === null || _a === void 0 ? void 0 : _a.split(",")[1];
+            if (!!base64String)
+                resolve("".concat(base64String));
+            else
+                reject("Please pass a vaild Blob file type");
+        };
+        reader.onerror = reject;
+        reader.readAsDataURL(blob);
+    });
+};
+/**
+ * Converts a File object to a base64 string.
+ * @param {File} file - The file object to convert.
+ * @returns {Promise<string>} - A Promise that resolves with the base64 string representing the file object.
+ *
+ */
+var fileToBase64 = function (file) { return __awaiter(void 0, void 0, void 0, function () {
+    var fileConfig, base64File;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                if (isIncludes(fileTypes, "extension", file.type.split("/")[1]))
+                    fileConfig = search(fileTypes, "mimeType", file.type, "FIRST ONE");
+                return [4 /*yield*/, fileReader(file)];
+            case 1:
+                base64File = _a.sent();
+                return [2 /*return*/, "data:".concat((fileConfig === null || fileConfig === void 0 ? void 0 : fileConfig.mimeType) || undefined, ";base64,").concat(base64File)];
+        }
+    });
+}); };
+
+exports.base64ToFile = base64ToFile;
+exports.calculateSum = calculateSum;
+exports.fileToBase64 = fileToBase64;
+exports.groupBy = groupBy;
+exports.hasDuplicateKey = hasDuplicateKey;
+exports.isIncludes = isIncludes;
+exports.orderBy = orderBy;
+exports.remove = remove;
+exports.removeDuplicates = removeDuplicates;
+exports.search = search;
