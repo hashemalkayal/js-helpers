@@ -275,3 +275,25 @@ Converts a File object to a base64 string.
 
 fileToBase64(base64String, fileName): Promise<string>;
 ```
+
+### `fileValidator(file , config)`
+
+Validates a file based on the specified configuration.
+
+```typescript
+/**
+ * Validates a file based on the specified configuration.
+ *
+ * @param {File|string} file - The file to validate. It can be either a File object or a base64-encoded string representing the file.
+ * @param {object} config - The configuration object specifying the validation criteria.
+ * @param {string[]} config.allowExtensions - An array of allowed file extensions.
+ * @param {string} config.fileName - The expected file name. If provided, the file's name must match this value (not required).
+ * @param {number} config.maxSize - The maximum allowed file size in bytes.
+ * @returns {object} - An object indicating whether the file is valid or not, along with the reason for invalidation if applicable.
+ * @property {boolean} isValid - Indicates whether the file is valid or not. `true` if valid, `false` otherwise.
+ * @property {string} reason - The reason for invalidation if the file is deemed invalid. If valid, this will be "all conditions are applied".
+ *
+ */
+
+fileValidator(file, config): Promise<string>;
+```
