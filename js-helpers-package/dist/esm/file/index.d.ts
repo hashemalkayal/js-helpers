@@ -1,3 +1,4 @@
+import { IFileValidator } from "./file.types";
 /**
  *
  * Converts a base64 string to a File object.
@@ -24,5 +25,35 @@ declare const base64ToFile: (base64String: string, fileName?: string) => File;
  *
  */
 declare const fileToBase64: (file: File) => Promise<string>;
-export { base64ToFile, fileToBase64 };
+/**
+ * Validates a file based on the specified configuration.
+ *
+ * @param {File|string} file - The file to validate. It can be either a File object or a base64-encoded string representing the file.
+ * @param {object} config - The configuration object specifying the validation criteria.
+ * @param {string[]} config.allowExtensions - An array of allowed file extensions.
+ * @param {string} config.fileName - The expected file name. If provided, the file's name must match this value.
+ * @param {number} config.maxSize - The maximum allowed file size in bytes.
+ * @returns {object} - An object indicating whether the file is valid or not, along with the reason for invalidation if applicable.
+ * @property {boolean} isValid - Indicates whether the file is valid or not. `true` if valid, `false` otherwise.
+ * @property {string} reason - The reason for invalidation if the file is deemed invalid. If valid, this will be "all conditions are applied".
+ *
+ * @example
+ *
+ * const myConfig = {
+    allowExtensions: ["png", "jpg", "jpeg"],
+    fileName: "myfile.png",
+    maxSize: 5000000, // 5MB
+  };
+
+  const validationResult = fileValidator(myFile, myConfig);
+   
+  Output: {"isVaild": true,"reason": "all conditions are applied"}
+ *
+ */
+declare const fileValidator: (file: File | string, config: {
+    allowExtensions: string[];
+    maxSize: number;
+    fileName?: string;
+}) => IFileValidator;
+export { base64ToFile, fileToBase64, fileValidator };
 //# sourceMappingURL=index.d.ts.map

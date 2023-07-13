@@ -1,6 +1,6 @@
 {
   "name": "js-helpeers",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "type": "module",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.mjs",
@@ -8,7 +8,9 @@
   "description": "is a lightweight JavaScript and Typescript (built with generics type) utility package that provides helpful functions for array handling and file handling. It aims to simplify common tasks and improve developer productivity.",
   "packageManager": "yarn@1.22.18",
   "types": "dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "keywords": [
     "javascript",
     "typescript",
@@ -47,6 +49,7 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-dts": "^5.3.0",
     "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.35.0",
     "ts-jest": "^29.1.1",
     "typescript": "^5.1.3"
