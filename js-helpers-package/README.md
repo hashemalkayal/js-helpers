@@ -1,4 +1,4 @@
-<p align="center"><br><img src="https://www.thinslices.com/hubfs/Blog-images/Typescript-06.jpg" width="300" height="300" /></p>
+<p align="center"><br><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/2048px-Typescript_logo_2020.svg.png" width="300" height="300" /></p>
 <p align="center"><strong><code>js-helpeers</code></strong></p>
 <p align="center">
 js-helpeers package
@@ -8,9 +8,6 @@ js-helpeers package
   <img src="https://img.shields.io/maintenance/yes/2023?style=flat-square" />
   <a href="https://www.npmjs.com/package/js-helpeers"><img src="https://img.shields.io/npm/l/js-helpeers?style=flat-square" /></a>
 </p>
-
-If you find this package useful, consider buying me a coffee:
-[![Buy Me a Coffee](https://www.buymeacoffee.com/assets/img/custom_images/white_img.png)](https://www.buymeacoffee.com/hashemkaial)
 
 # js-helpeers
 

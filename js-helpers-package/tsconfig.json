@@ -6,7 +6,7 @@
     "sourceMap": true,
     "outDir": "./dist",
     "module": "ESNext",
-    "lib": ["es6", "dom", "ES2023", "ES2023.Array"],
+    "lib": ["es6", "dom", "ES2022"],
     "strict": true,
     "esModuleInterop": true,
     "declarationDir": "types"
